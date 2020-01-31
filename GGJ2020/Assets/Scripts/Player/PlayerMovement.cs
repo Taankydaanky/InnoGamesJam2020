@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 moveDir = Vector2.MoveTowards(head.transform.position, headGoal, movement.y * headSpeed * Time.fixedDeltaTime);
 
+
         if (movement.y != 0)
         {
             Debug.Log(head.transform.position+" global "+headGoal+" moveDir "+moveDir);
