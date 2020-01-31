@@ -5,6 +5,8 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     [SerializeField] private bool broken;
+    public string breakAnimation;
+    public string repairAnimation;
     public bool isBroken {
         get => broken;
         set
@@ -19,6 +21,25 @@ public class Breakable : MonoBehaviour
 
     void OnBreakStateChange()
     {
-        // Do something here
+        string animation;
+        if(isBroken)
+        {
+            animation = breakAnimation;
+        }
+        else
+        {
+            animation = repairAnimation;
+        }
+
+        Animator ani = gameObject.GetComponent<Animator>();
+        if(ani != null && animation != null && !animation.Equals(""))
+        {
+            ani.Play(animation);
+        }
+    }
+
+    private void Start()
+    {
+        //OnBreakStateChange();
     }
 }
