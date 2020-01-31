@@ -5,6 +5,7 @@ using UnityEngine;
 public class Activatable : MonoBehaviour
 {
     public bool isActive;
+    public bool updateOnStart = true;
     public Activatable[] toActivate;
     public string activateAnimation;
     public string deactivateAnimation;
@@ -84,6 +85,9 @@ public class Activatable : MonoBehaviour
 
     private void Start()
     {
-        OnActivationChange();
+        if(updateOnStart)
+        {
+            OnActivationChange();
+        }
     }
 }
