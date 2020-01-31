@@ -24,7 +24,6 @@ public class Activatable : MonoBehaviour
                     if(ani != null)
                     {
                         ani.Play(activateAnimation);
-                        print("Tset");
                     }
                 }
             }

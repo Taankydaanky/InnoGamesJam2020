@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 1115569299}
   - component: {fileID: 1115569298}
   - component: {fileID: 1115569303}
+  - component: {fileID: 1115569304}
   m_Layer: 0
   m_Name: AndActivated
   m_TagString: Untagged
@@ -1071,8 +1072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   toActivate: []
-  activateAnimation: Ani1
-  deactivateAnimation: Ani2
+  activateAnimation: TestAnimation
+  deactivateAnimation: TestAnimation2
 --- !u!65 &1115569299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1165,6 +1166,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1115569304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115569297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a73041c8419804d97615995a1374ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broken: 1
+  breakAnimation: TestBreakAni
+  repairAnimation: TestAnimation2
 --- !u!1 &1196179791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1552,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broken: 0
+  breakAnimation: 
+  repairAnimation: 
 --- !u!1 &1690421175
 GameObject:
   m_ObjectHideFlags: 0
