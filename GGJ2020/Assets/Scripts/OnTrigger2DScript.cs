@@ -11,7 +11,7 @@ public class OnTrigger2DScript : MonoBehaviour
 {
     public AudioMixerSnapshot colliding;
     public AudioMixerSnapshot stillColliding;
-    public AudioMixerSnapshot nonColliding;
+    //public AudioMixerSnapshot nonColliding;
 
     public float transitionTime = .8f;
 
@@ -31,12 +31,12 @@ public class OnTrigger2DScript : MonoBehaviour
             stillColliding.TransitionTo(transitionTime);
         }
     }
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            nonColliding.TransitionTo(transitionTime);
-        }
-    }
+    //void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        nonColliding.TransitionTo(transitionTime);
+    //    }
+    //}
 
 }

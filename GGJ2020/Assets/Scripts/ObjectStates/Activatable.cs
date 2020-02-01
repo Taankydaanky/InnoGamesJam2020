@@ -37,19 +37,33 @@ public class Activatable : MonoBehaviour
                 {
                     animator.SetBool("Active", true);
 
-                    if (buttonSound1 != null && buttonSound2 != null)
-                    {
-                        SoundManager.instance.RandomizeSfx(buttonSound2);
-                        buttonSongStart.TransitionTo(transitionTime);
-                        if (buttonSongStop1 != null && buttonSongStop2 != null && buttonSongStop3 != null)
-                        {
-                            buttonSongStop1.TransitionTo(transitionTime);
-                            buttonSongStop2.TransitionTo(transitionTime);
-                            buttonSongStop3.TransitionTo(transitionTime);
-                        }
+                    
 
-                    } 
-                        
+                }
+
+                if (buttonSound1 != null && buttonSound2 != null)
+                {
+                    SoundManager.instance.RandomizeSfx(buttonSound2);
+                }
+
+                if (buttonSongStart != null)
+                {
+                    buttonSongStart.TransitionTo(transitionTime);
+                }
+
+                if (buttonSongStop1 != null)
+                {
+                    buttonSongStop1.TransitionTo(transitionTime);
+                }
+
+                if (buttonSongStop2 != null)
+                {
+                    buttonSongStop2.TransitionTo(transitionTime);
+                }
+
+                if (buttonSongStop3 != null)
+                {
+                    buttonSongStop3.TransitionTo(transitionTime);
                 }
             }
         }
@@ -109,14 +123,18 @@ public class Activatable : MonoBehaviour
     {
         foreach (Activatable acc in toActivate)
         {
-            if (activate)
+            if(acc != null)
             {
-                acc.Activate();
+                if (activate)
+                {
+                    acc.Activate();
+                }
+                else
+                {
+                    acc.Deactivate();
+                }
             }
-            else
-            {
-                acc.Deactivate();
-            }
+            
         }
     }
 
