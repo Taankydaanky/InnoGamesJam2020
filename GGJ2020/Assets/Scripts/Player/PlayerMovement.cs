@@ -139,8 +139,5 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider.enabled = false;
         yield return new WaitForSeconds(colliderTime);
         bodyCollider.enabled = true;
-        //yield return new WaitForSeconds(moveTime - colliderTime);
-        //elevatorMoveDir = 0;
-        //Debug.Log("move");
     }
 }

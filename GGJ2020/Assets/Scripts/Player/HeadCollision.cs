@@ -6,8 +6,15 @@ using UnityEngine.InputSystem;
 
 public class HeadCollision : MonoBehaviour
 {
-    private Activatable currentButton;
+    private Activatable currentActivatable;
+    private Breakable currentBreakable;
     private ControlsMaster controlsMaster;
+    private PlayerItems playerItems;
+
+    private void Start()
+    {
+        playerItems = GetComponentInParent<PlayerItems>();
+    }
 
     void OnEnable()
     {
@@ -27,25 +34,47 @@ public class HeadCollision : MonoBehaviour
 
     private void Toggle(InputAction.CallbackContext obj)
     {
-        currentButton?.Toggle();
+        currentActivatable?.Toggle();
+        if (currentBreakable != null)
+        {
+            if (currentBreakable.repairKitNeeded == playerItems.currentRepairKit)
+            {
+                currentBreakable.isBroken = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Button")
+        currentActivatable = collision.GetComponent<Activatable>();
+        currentBreakable = collision.GetComponent<Breakable>();
+
+        if (currentActivatable!=null)
         {
-            currentButton = collision.GetComponent<Activatable>();
-            currentButton.Highlight(true);
+            currentActivatable.Highlight(true);
+        }
+
+        if(currentBreakable!=null)
+        {
+            currentBreakable.Highlight(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Button")
+        currentActivatable = collision.GetComponent<Activatable>();
+        currentBreakable = collision.GetComponent<Breakable>();
+
+        if (currentActivatable != null)
         {
-            currentButton.Highlight(false);
-            currentButton = null;
-            Debug.Log("un-highlight");
+            currentActivatable.Highlight(false);
+            currentActivatable = null;
+        }
+
+        if (currentBreakable != null)
+        {
+            currentBreakable.Highlight(false);
+            currentBreakable = null;
         }
     }
 }

@@ -103,7 +103,7 @@ public class Activatable : MonoBehaviour
         PropagateActivation(active);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if(updateOnStart)
         {
