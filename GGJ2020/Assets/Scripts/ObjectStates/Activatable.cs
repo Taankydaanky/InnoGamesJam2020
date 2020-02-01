@@ -69,6 +69,18 @@ public class Activatable : MonoBehaviour
         return true;
     }
 
+    public void Toggle()
+    {
+        if(active)
+        {
+            Activate();
+        }
+        else
+        {
+            Deactivate();
+        }
+    }
+
     protected void PropagateActivation(bool activate)
     {
         foreach (Activatable acc in toActivate)
