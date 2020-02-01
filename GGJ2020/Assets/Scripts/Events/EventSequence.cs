@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ScriptedEventSequence : Activatable
+public class EventSequence : Activatable
 {
     public ActivatableEvent[] sequence;
     public UnityEvent endedEvent;
