@@ -102,9 +102,13 @@ public class PlayerMovement : MonoBehaviour
         else if (Mathf.Abs(elevatorMoveDir) == 1)
         {
             body.velocity = Vector2.zero;
-            Vector2 goal = new Vector2(transform.position.x, currentElevatorGoal.y);
-            transform.position = Vector2.MoveTowards(transform.position, goal, elevatorSpeed * Time.fixedDeltaTime);
-            if((Vector2)transform.position == goal)
+            Vector2 bodyGoal = new Vector2(transform.position.x, currentElevatorGoal.y);
+            transform.position = Vector2.MoveTowards(transform.position, bodyGoal, elevatorSpeed * Time.fixedDeltaTime);
+
+            Vector2 headGoal = transform.TransformPoint(new Vector2(0, headMinY));
+            head.position = Vector2.MoveTowards(head.transform.position, headGoal, headSpeed * Time.fixedDeltaTime);
+
+            if((Vector2)transform.position == bodyGoal)
             {
                 elevatorMoveDir = 0;
             }
