@@ -1,11 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
-{ 
+{
+    public static HealthManager healthManager;
+
     public enum Sections : int { TOP_SECTION, MIDDLE_SECTION, BOTTOM_SECTION };
     public RocketSectionHealth[] sections = new RocketSectionHealth[3];
+    [SerializeField] private Image[] sectionImages;
+    [SerializeField, Tooltip("dead to alive")] private Gradient healthGradient;
+
+    private void Start()
+    {
+        if(healthManager == null)
+        {
+            healthManager = this;
+        }
+
+        if(healthManager!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        for(int i=0;i<sectionImages.Length;i++)
+        {
+            SetSectionHealth(i,sections[i].maxHealth);
+        }
+    }
+
+    public void ShowHealth(int section)
+    {
+        RocketSectionHealth rsh = sections[section];
+        sectionImages[section].color = healthGradient.Evaluate(((float)rsh.currentHealth) / rsh.maxHealth);
+    }
 
     public int GetSectionHealth(int section)
     {
@@ -23,6 +53,7 @@ public class HealthManager : MonoBehaviour
         if (rsh != null)
         {
             rsh.currentHealth = health;
+            sectionImages[section].color = healthGradient.Evaluate(((float)rsh.currentHealth) / rsh.maxHealth);
         }
     }
 
@@ -32,6 +63,7 @@ public class HealthManager : MonoBehaviour
         if(rsh != null)
         {
             rsh.currentHealth -= healthToRemove;
+            sectionImages[section].color = healthGradient.Evaluate(((float)rsh.currentHealth) / rsh.maxHealth);
             return rsh.currentHealth;
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     [SerializeField] private bool broken;
-    [SerializeField] private RocketSectionHealth improveHealth;
+    [SerializeField] private HealthManager.Sections improveHealth;
     [SerializeField] private int improveHealthAmount;
     
     public bool updateOnStart;
@@ -35,7 +35,7 @@ public class Breakable : MonoBehaviour
 
         if(!isBroken && improveHealth != null)
         {
-            improveHealth.currentHealth += improveHealthAmount;
+            HealthManager.healthManager.RemoveSectionHealth((int)improveHealth, improveHealthAmount*-1);
         }
     }
 
