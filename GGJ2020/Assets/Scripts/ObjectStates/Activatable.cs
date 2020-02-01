@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Activatable : MonoBehaviour
 {
-    
-
-    public bool isActive;
+    [SerializeField] protected bool active;
+    public virtual bool isActive { get => active; set => active = value; }
     public bool updateOnStart = true;
     public Activatable[] toActivate;
     private Animator animator, highlightAnimator;
@@ -16,7 +15,7 @@ public class Activatable : MonoBehaviour
     {
         if(CanActivate())
         {
-            if(!isActive)
+            if(!active)
             {
                 isActive = true;
                 OnActivationChange();
@@ -47,7 +46,7 @@ public class Activatable : MonoBehaviour
 
     public void Deactivate()
     {
-        if(isActive && CanDeactivate())
+        if(active && CanDeactivate())
         {
             isActive = false;
             OnActivationChange();
@@ -87,7 +86,7 @@ public class Activatable : MonoBehaviour
 
     protected virtual void OnActivationChange()
     {
-        PropagateActivation(isActive);
+        PropagateActivation(active);
     }
 
     private void Start()
