@@ -6,7 +6,6 @@ public class SoundManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource efxSource;
-    public AudioSource musicSource;
     public static SoundManager instance = null;
 
     public float lowPitchRange = .95f;
