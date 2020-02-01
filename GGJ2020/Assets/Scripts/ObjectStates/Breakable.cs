@@ -5,7 +5,9 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     [SerializeField] private bool broken;
-
+    [SerializeField] private RocketSectionHealth improveHealth;
+    [SerializeField] private int improveHealthAmount;
+    
     public bool updateOnStart;
     public Enums.RepairKits repairKitNeeded;
 
@@ -29,6 +31,11 @@ public class Breakable : MonoBehaviour
         if(animator != null)
         {
             animator.SetBool("broken", isBroken);
+        }
+
+        if(!isBroken && improveHealth != null)
+        {
+            improveHealth.currentHealth += improveHealthAmount;
         }
     }
 
