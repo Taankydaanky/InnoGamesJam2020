@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        currentSeconds = 0;
+        currentSeconds = -1;
         startTime = DateTime.UtcNow;
     }
 
@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
             eventGenerator.UpdateRunningEvents(exactTime);
         }
 
-        eventGenerator.Update(exactTime);
+        eventGenerator.UpdateEvents(exactTime);
 
         currentSeconds = newSeconds;
 

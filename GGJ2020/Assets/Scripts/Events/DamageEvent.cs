@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageEvent : Event
+public class DamageEvent : DurationEvent
 {
     public int damage;
     public RocketSectionHealth healthSection;

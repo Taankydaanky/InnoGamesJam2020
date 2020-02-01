@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneratedEvent : ScriptableObject
 {
-    public Event execEvent;
+    public DurationEvent execEvent;
     public float time;
 
     public bool Activate(float time)
@@ -17,7 +17,7 @@ public class GeneratedEvent : ScriptableObject
         return false;
     }
 
-    public GeneratedEvent(Event execEvent, float time)
+    public GeneratedEvent(DurationEvent execEvent, float time)
     {
         this.execEvent = execEvent;
         this.time = time;

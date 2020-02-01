@@ -21,7 +21,7 @@ public class ContinuousDamageEvent : DamageEvent
         }
     }
 
-    public override void Update(float eventDuration)
+    public override void UpdateEvent(float eventDuration)
     {
         if(lastDamageTime + damageInterval <= eventDuration)
         {

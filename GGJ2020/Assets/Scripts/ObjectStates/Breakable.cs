@@ -20,7 +20,7 @@ public class Breakable : MonoBehaviour
         }    
     }
 
-    void OnBreakStateChange()
+    protected virtual void OnBreakStateChange()
     {
         string animation;
         if(isBroken)

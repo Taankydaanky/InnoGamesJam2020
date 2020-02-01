@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EventGenerator : MonoBehaviour
 {
-    public Event[] captainEvents;
-    public Event[] environmentEvents;
-    public Event[] groundEvents;
+    public DurationEvent[] captainEvents;
+    public DurationEvent[] environmentEvents;
+    public DurationEvent[] groundEvents;
 
     public int captianEventDistance;
     public int environmentEventDistance;
@@ -28,16 +28,16 @@ public class EventGenerator : MonoBehaviour
         runningEvents = new List<GeneratedEvent>();
     }
 
-    List<GeneratedEvent> GenerateEventTimeline(Event[] events, int eventDistance, EventTiming[] timings)
+    List<GeneratedEvent> GenerateEventTimeline(DurationEvent[] events, int eventDistance, EventTiming[] timings)
     {
         List<GeneratedEvent> generatedEvents = new List<GeneratedEvent>();
 
-        Queue<Event> usedEvents = new Queue<Event>();
-        List<Event> availableEvents = new List<Event>(events);
+        Queue<DurationEvent> usedEvents = new Queue<DurationEvent>();
+        List<DurationEvent> availableEvents = new List<DurationEvent>(events);
 
         foreach(EventTiming timing in timings)
         {
-            Event usedEvent;
+            DurationEvent usedEvent;
             if(availableEvents.Count > 0)
             {
                 usedEvent = availableEvents[Random.Range(0, availableEvents.Count)];
@@ -58,7 +58,7 @@ public class EventGenerator : MonoBehaviour
 
             if (usedEvents.Count >= eventDistance)
             {
-                Event dequeued = usedEvents.Dequeue();
+                DurationEvent dequeued = usedEvents.Dequeue();
                 availableEvents.Add(dequeued);
             }
         }
@@ -87,11 +87,11 @@ public class EventGenerator : MonoBehaviour
         endedEvents.ForEach(e => e.execEvent.End(time - e.time));
     }
     
-    public void Update(float time)
+    public void UpdateEvents(float time)
     {
         foreach(GeneratedEvent ev in runningEvents)
         {
-            ev.execEvent.Update(time - ev.time);
+            ev.execEvent.UpdateEvent(time - ev.time);
         }
     }
 }
