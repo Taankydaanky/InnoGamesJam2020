@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Event : ScriptableObject
+public class Event : MonoBehaviour
 {
     public UnityEvent startEvent, endEvent;
     public virtual void Execute(float time)

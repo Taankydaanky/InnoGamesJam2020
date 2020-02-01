@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneratedEvent : ScriptableObject
+public class GeneratedEvent
 {
     public DurationEvent execEvent;
     public float time;

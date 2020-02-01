@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BreakableObjectList", menuName = "ScriptableObjects/BreakableObjectList", order = 1)]
-public class BreakableObjectList : ScriptableObject
+public class BreakableObjectList : MonoBehaviour
 {
     public Breakable[] breakableObjects;
 

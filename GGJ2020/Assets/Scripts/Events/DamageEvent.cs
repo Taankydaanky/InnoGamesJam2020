@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DamageEvent", menuName = "ScriptableObjects/DamageEvent", order = 1)]
 public class DamageEvent : DurationEvent
 {
     public int damage;

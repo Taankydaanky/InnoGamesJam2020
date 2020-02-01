@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ContinuousDamageEvent", menuName = "ScriptableObjects/ContinuousDamageEvent", order = 1)]
 public class ContinuousDamageEvent : DamageEvent
 {
     public float damageInterval;
