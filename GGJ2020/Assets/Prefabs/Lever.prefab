@@ -127,11 +127,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3867525584808394481}
   - component: {fileID: 3867525584808394480}
-  - component: {fileID: 3867525584808394486}
   - component: {fileID: 3867525584808394487}
   - component: {fileID: 3867525584808394484}
   m_Layer: 0
-  m_Name: RadioStart
+  m_Name: Lever
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,34 +200,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3867525584808394486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867525584808394483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6045bb6c58a08748bf7e4043ff59255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonSound1: {fileID: 0}
-  buttonSound2: {fileID: 0}
-  buttonSongStart: {fileID: 0}
-  buttonSongStop: {fileID: 0}
-  buttonSongStop1: {fileID: 0}
-  buttonSongStop2: {fileID: 0}
-  buttonSongStop3: {fileID: 0}
-  transitionTime: 0.8
-  active: 0
-  updateOnStart: 1
-  toActivate:
-  - {fileID: 3867525584808394486}
-  inputs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!58 &3867525584808394487
 CircleCollider2D:
   m_ObjectHideFlags: 0
