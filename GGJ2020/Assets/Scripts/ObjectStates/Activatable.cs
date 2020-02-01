@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Activatable : MonoBehaviour
 {
     public AudioClip buttonSound1;
     public AudioClip buttonSound2;
+    public AudioMixerSnapshot buttonSongStart;
+    public AudioMixerSnapshot buttonSongStop;
+    public AudioMixerSnapshot buttonSongStop1;
+    public AudioMixerSnapshot buttonSongStop2;
+    public AudioMixerSnapshot buttonSongStop3;
+    public float transitionTime = .8f;
+
+
 
     [SerializeField] protected bool active;
     public virtual bool isActive { get => active; set => active = value; }
@@ -30,6 +40,14 @@ public class Activatable : MonoBehaviour
                     if (buttonSound1 != null && buttonSound2 != null)
                     {
                         SoundManager.instance.RandomizeSfx(buttonSound2);
+                        buttonSongStart.TransitionTo(transitionTime);
+                        if (buttonSongStop1 != null && buttonSongStop2 != null && buttonSongStop3 != null)
+                        {
+                            buttonSongStop1.TransitionTo(transitionTime);
+                            buttonSongStop2.TransitionTo(transitionTime);
+                            buttonSongStop3.TransitionTo(transitionTime);
+                        }
+
                     } 
                         
                 }
@@ -61,6 +79,10 @@ public class Activatable : MonoBehaviour
                 if (buttonSound1 != null && buttonSound2 != null)
                 {
                     SoundManager.instance.RandomizeSfx(buttonSound1);
+                    if (buttonSongStop != null)
+                    {
+                        buttonSongStop.TransitionTo(transitionTime);
+                    }
                 }
             }
         }

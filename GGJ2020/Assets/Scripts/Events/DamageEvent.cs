@@ -5,9 +5,10 @@ using UnityEngine;
 public class DamageEvent : DurationEvent
 {
     public int damage;
-    public RocketSectionHealth healthSection;
+    public HealthManager.Sections section;
     public Activatable damageCondition;
     public DamageGroup[] damageGroups;
+    private HealthManager healthManager = HealthManager.healthManager;
 
     public override void End(float eventDuration)
     {
@@ -19,7 +20,7 @@ public class DamageEvent : DurationEvent
     {
         if(damageCondition == null || damageCondition.isActive)
         {
-            healthSection.currentHealth -= damage;
+            healthManager.RemoveSectionHealth((int) section, damage);
 
             foreach(DamageGroup dg in damageGroups)
             {
