@@ -5,16 +5,10 @@ using UnityEngine.Events;
 
 public class Event : ScriptableObject
 {
-    public float duration;
     public UnityEvent startEvent, endEvent;
     public virtual void Execute(float time)
     {
         RunStartEvent();
-    }
-
-    public virtual void Update(float eventDuration)
-    {
-
     }
 
     public virtual void End(float eventDuration)
@@ -22,11 +16,16 @@ public class Event : ScriptableObject
         RunEndEvent();
     }
 
+    public virtual void UpdateEvent(float eventDuration)
+    {
+
+    }
+
     public virtual bool HasEnded(float eventDuration)
     {
-        return duration <= eventDuration;
+        return true;
     }
-    
+
     protected void RunStartEvent()
     {
         if(startEvent != null)

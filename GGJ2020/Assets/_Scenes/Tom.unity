@@ -363,10 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 501558766}
-  activateAnimation: 
-  deactivateAnimation: 
+  toActivate: []
 --- !u!4 &228486959
 Transform:
   m_ObjectHideFlags: 0
@@ -678,13 +675,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 1115569298}
-  activateAnimation: 
-  deactivateAnimation: 
-  inputs:
-  - {fileID: 228486958}
-  - {fileID: 1283609072}
+  toActivate: []
+  inputs: []
 --- !u!4 &501558767
 Transform:
   m_ObjectHideFlags: 0
@@ -734,8 +726,8 @@ MonoBehaviour:
   active: 0
   updateOnStart: 1
   toActivate: []
-  activateAnimation: 
-  deactivateAnimation: 
+  animator: {fileID: 0}
+  highlightAnimator: {fileID: 0}
 --- !u!65 &616449874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1199,8 +1191,8 @@ MonoBehaviour:
   active: 0
   updateOnStart: 1
   toActivate: []
-  activateAnimation: TestAnimation
-  deactivateAnimation: TestAnimation2
+  animator: {fileID: 0}
+  highlightAnimator: {fileID: 0}
 --- !u!65 &1115569299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1423,13 +1415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 616449873}
-  activateAnimation: 
-  deactivateAnimation: 
-  inputs:
-  - {fileID: 1410067927}
-  - {fileID: 1283609072}
+  toActivate: []
+  inputs: []
 --- !u!4 &1229231011
 Transform:
   m_ObjectHideFlags: 0
@@ -1478,11 +1465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 501558766}
-  - {fileID: 1229231010}
-  activateAnimation: 
-  deactivateAnimation: 
+  toActivate: []
+  animator: {fileID: 0}
+  highlightAnimator: {fileID: 0}
 --- !u!136 &1283609073
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1592,11 +1577,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 228486958}
-  - {fileID: 1229231010}
-  activateAnimation: 
-  deactivateAnimation: 
+  toActivate: []
+  animator: {fileID: 0}
+  highlightAnimator: {fileID: 0}
 --- !u!65 &1410067928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1679,13 +1662,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410067926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a73041c8419804d97615995a1374ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ec583d7175aee04a8f111f2321e5cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   broken: 0
   updateOnStart: 0
   breakAnimation: 
   repairAnimation: 
+  toActivate: []
 --- !u!1 &1690421175
 GameObject:
   m_ObjectHideFlags: 0
