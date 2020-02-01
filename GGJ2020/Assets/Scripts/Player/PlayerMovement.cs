@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         head = transform.GetChild(0);
         headMinY = head.transform.localPosition.y;
+        isFacingLeft = true;
         SetFaceDirection();
     }
 
@@ -48,7 +49,11 @@ public class PlayerMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         movement = obj.ReadValue<Vector2>();
-        SetFaceDirection();
+        if(Mathf.Abs(movement.x)>0)
+        {
+            SetFaceDirection();
+        }
+        
 
     }
 
@@ -70,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         isFacingLeft = movement.x <= 0;
         if(oldIsFacingLeft != isFacingLeft)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
             Debug.Log("switch face direction");
         }
     }
