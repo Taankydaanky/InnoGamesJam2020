@@ -11,7 +11,7 @@ public class Activatable : MonoBehaviour
     private Animator animator, highlightAnimator;
 
 
-    public void Activate()
+    public virtual void Activate()
     {
         if(CanActivate())
         {
@@ -35,7 +35,7 @@ public class Activatable : MonoBehaviour
         return true;
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         if(active && CanDeactivate())
         {
