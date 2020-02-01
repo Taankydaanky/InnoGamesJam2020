@@ -10,6 +10,7 @@ using UnityEditor;
 public class OnTrigger2DScript : MonoBehaviour
 {
     public AudioMixerSnapshot colliding;
+    public AudioMixerSnapshot stillColliding;
     public AudioMixerSnapshot nonColliding;
 
     public float transitionTime = .8f;
@@ -17,6 +18,11 @@ public class OnTrigger2DScript : MonoBehaviour
     void OnTriggerEnter2D()
     {
         colliding.TransitionTo(transitionTime);
+    }
+
+    void OnCollisionStay2D()
+    {
+        stillColliding.TransitionTo(transitionTime);
     }
     void OnTriggerExit2D()
     {
