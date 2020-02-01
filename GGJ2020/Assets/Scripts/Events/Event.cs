@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Event : MonoBehaviour
 {
     public UnityEvent startEvent, endEvent;
-    public Image eventIcon;
+    public Sprite eventIcon;
     public virtual void Execute(float time)
     {
         RunStartEvent();

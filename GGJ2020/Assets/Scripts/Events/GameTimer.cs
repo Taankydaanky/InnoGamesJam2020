@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Timer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
     public int maxSeconds = 120;
     public UnityEvent timerEnded;
