@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4847051b5160dd748b9995e2a45f596f, type: 3}
   m_Name: Middle
   m_EditorClassIdentifier: 
-  imageToColor: {fileID: 0}
-  maxHealth: 0
+  maxHealth: 10
