@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : ScriptableObject
+public class HealthManager : MonoBehaviour
 { 
     public enum Sections : int { TOP_SECTION, MIDDLE_SECTION, BOTTOM_SECTION };
     public RocketSectionHealth[] sections = new RocketSectionHealth[3];
