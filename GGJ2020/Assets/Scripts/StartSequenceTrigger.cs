@@ -8,6 +8,11 @@ public class StartSequenceTrigger : MonoBehaviour
 
     private Activatable activatable;
 
+    private void Start()
+    {
+        activatable = gameObject.GetComponent<Activatable>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
