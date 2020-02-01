@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventGenerator : MonoBehaviour
 {
@@ -19,7 +20,12 @@ public class EventGenerator : MonoBehaviour
     private List<GeneratedEvent> generatedTimeline;
     private List<GeneratedEvent> runningEvents;
     private List<GeneratedEvent> environmentEventList;
+    private Dictionary<GeneratedEvent,Slider> environmentEventSliders;
     public List<GeneratedEvent> environmentGeneratedEvents { get => environmentEventList; }
+
+    [SerializeField] private GameTimer timer;
+    [SerializeField] private GameObject desasterSliderPrefab;
+    [SerializeField] private Transform desasterTimeline;
 
     void Start()
     {
@@ -29,6 +35,7 @@ public class EventGenerator : MonoBehaviour
         generatedTimeline.AddRange(environmentEventList);
         generatedTimeline.AddRange(GenerateEventTimeline(groundEvents, groundEventDistance, groundEventTimings));
         runningEvents = new List<GeneratedEvent>();
+        ShowEnvironmentEvents();
     }
 
     List<GeneratedEvent> GenerateEventTimeline(DurationEvent[] events, int eventDistance, EventTiming[] timings)
@@ -95,6 +102,22 @@ public class EventGenerator : MonoBehaviour
         foreach(GeneratedEvent ev in runningEvents)
         {
             ev.execEvent.UpdateEvent(time - ev.time);
+        }
+        foreach (GeneratedEvent ev in environmentEventList)
+        {
+            environmentEventSliders[ev].value = (ev.time - time) / timer.maxSeconds;
+        }
+    }
+
+    private void ShowEnvironmentEvents()
+    {
+        environmentEventSliders = new Dictionary<GeneratedEvent, Slider>();
+        foreach(GeneratedEvent ev in environmentEventList)
+        {
+            Slider eventSlider = Instantiate(desasterSliderPrefab, desasterTimeline).GetComponentInChildren<Slider>();
+            eventSlider.value =  ev.time / timer.maxSeconds;
+            eventSlider.targetGraphic.GetComponent<Image>().sprite = ev.execEvent.eventIcon;
+            environmentEventSliders.Add(ev,eventSlider);
         }
     }
 }

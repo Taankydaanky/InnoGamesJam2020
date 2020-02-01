@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e7054be25558945ae73758c2ddf0df, type: 3}
   m_Name: CTTime1
   m_EditorClassIdentifier: 
-  triggerTimeInSeconds: 6
+  triggerTimeInSeconds: 30
   positiveVariability: 4
   negativeVariability: 7
