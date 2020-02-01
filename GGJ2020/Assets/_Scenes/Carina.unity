@@ -126,25 +126,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3141629471965697929}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &821544182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3141629472705433636, guid: f7f938e740e06994f8c810bcea2f81cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3141629471965697929}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &821544183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821544182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57bb44a9c2d947c44951541778c7421a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentRepairKit: 3
 --- !u!1 &978766104
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broken: 1
+  improveHealth: {fileID: 0}
+  improveHealthAmount: 0
   updateOnStart: 1
   repairKitNeeded: 0
 --- !u!212 &1915520929
