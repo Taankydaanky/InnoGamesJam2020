@@ -15,18 +15,28 @@ public class OnTrigger2DScript : MonoBehaviour
 
     public float transitionTime = .8f;
 
-    void OnTriggerEnter2D()
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        colliding.TransitionTo(transitionTime);
+        if (collision.tag == "Player")
+        {
+            colliding.TransitionTo(transitionTime);
+        }
     }
 
-    void OnCollisionStay2D()
+    void OnTriggerStay2D(Collider2D collision)
     {
-        stillColliding.TransitionTo(transitionTime);
+        if (collision.tag == "Player")
+        {
+            stillColliding.TransitionTo(transitionTime);
+        }
     }
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D collision)
     {
-        nonColliding.TransitionTo(transitionTime);
+        if (collision.tag == "Player")
+        {
+            nonColliding.TransitionTo(transitionTime);
+        }
     }
 
 }
