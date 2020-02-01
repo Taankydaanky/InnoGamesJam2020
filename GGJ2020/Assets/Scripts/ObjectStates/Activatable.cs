@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Activatable : MonoBehaviour
 {
+    public AudioClip buttonSound1;
+    public AudioClip buttonSound2;
+
     [SerializeField] protected bool active;
     public virtual bool isActive { get => active; set => active = value; }
     public bool updateOnStart = true;
@@ -23,6 +26,12 @@ public class Activatable : MonoBehaviour
                 if(animator != null)
                 {
                     animator.SetBool("Active", true);
+
+                    if (buttonSound1 != null && buttonSound2 != null)
+                    {
+                        SoundManager.instance.RandomizeSfx(buttonSound2);
+                    } 
+                        
                 }
             }
         }
@@ -48,6 +57,11 @@ public class Activatable : MonoBehaviour
             if(animator != null)
             {
                 animator.SetBool("Active", false);
+
+                if (buttonSound1 != null && buttonSound2 != null)
+                {
+                    SoundManager.instance.RandomizeSfx(buttonSound1);
+                }
             }
         }
     }
