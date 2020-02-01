@@ -136,11 +136,9 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DisableCollider(float colliderTime, float moveTime)
     {
-        Debug.Log("disable collider");
         bodyCollider.enabled = false;
         yield return new WaitForSeconds(colliderTime);
         bodyCollider.enabled = true;
-        Debug.Log("enable collider");
         //yield return new WaitForSeconds(moveTime - colliderTime);
         //elevatorMoveDir = 0;
         //Debug.Log("move");
