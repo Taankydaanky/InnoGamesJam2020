@@ -14,7 +14,7 @@ public class HeadCollision : MonoBehaviour
         if(controlsMaster == null)
         {
             controlsMaster = new ControlsMaster();
-            controlsMaster.Player.Activate.performed += Activate;
+            controlsMaster.Player.Activate.performed += Toggle;
         }
 
         controlsMaster.Player.Enable();
@@ -25,10 +25,9 @@ public class HeadCollision : MonoBehaviour
         controlsMaster.Disable();
     }
 
-    private void Activate(InputAction.CallbackContext obj)
+    private void Toggle(InputAction.CallbackContext obj)
     {
-        currentButton?.Activate();
-        Debug.Log("activate");
+        currentButton?.Toggle();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -20,16 +20,7 @@ public class Activatable : MonoBehaviour
                 isActive = true;
                 OnActivationChange();
 
-                //if(activateAnimation != null && !activateAnimation.Equals(""))
-                //{
-                //    Animator ani = gameObject.GetComponent<Animator>();
-                //    if(ani != null)
-                //    {
-                //        ani.Play(activateAnimation);
-                //    }
-                //}
                 animator.SetBool("Active", true);
-                Debug.Log("activatable");
             }
         }
     }
@@ -50,17 +41,8 @@ public class Activatable : MonoBehaviour
         {
             isActive = false;
             OnActivationChange();
-            //if (deactivateAnimation != null && !deactivateAnimation.Equals(""))
-            //{
-            //    Animator ani = gameObject.GetComponent<Animator>();
-            //    if (ani != null)
-            //    {
-            //        ani.Play(deactivateAnimation);
-            //    }
 
-            //}
             animator.SetBool("Active", false);
-            Debug.Log("un-activatable");
         }
     }
 
@@ -71,7 +53,7 @@ public class Activatable : MonoBehaviour
 
     public void Toggle()
     {
-        if(active)
+        if (!active)
         {
             Activate();
         }
