@@ -6,8 +6,7 @@ public class Breakable : MonoBehaviour
 {
     [SerializeField] private bool broken;
     public bool updateOnStart;
-    public string breakAnimation;
-    public string repairAnimation;
+    private Animator animator;
     public bool isBroken {
         get => broken;
         set
@@ -22,25 +21,15 @@ public class Breakable : MonoBehaviour
 
     protected virtual void OnBreakStateChange()
     {
-        string animation;
-        if(isBroken)
+        if(animator != null)
         {
-            animation = breakAnimation;
-        }
-        else
-        {
-            animation = repairAnimation;
-        }
-
-        Animator ani = gameObject.GetComponent<Animator>();
-        if(ani != null && animation != null && !animation.Equals(""))
-        {
-            ani.Play(animation);
+            animator.SetBool("broken", isBroken);
         }
     }
 
     private void Start()
     {
+        animator = gameObject.GetComponent<Animator>();
         if (updateOnStart)
         {
             OnBreakStateChange();

@@ -35,6 +35,7 @@ public class EventSequence : Activatable
 
             if(currentIndex < sequence.Length)
             {
+                Debug.Log(currentIndex);
                 sequence[currentIndex].Execute(0);
             }
         }

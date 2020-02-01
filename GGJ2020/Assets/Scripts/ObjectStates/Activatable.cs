@@ -20,7 +20,10 @@ public class Activatable : MonoBehaviour
                 isActive = true;
                 OnActivationChange();
 
-                animator.SetBool("Active", true);
+                if(animator != null)
+                {
+                    animator.SetBool("Active", true);
+                }
             }
         }
     }
@@ -42,7 +45,10 @@ public class Activatable : MonoBehaviour
             isActive = false;
             OnActivationChange();
 
-            animator.SetBool("Active", false);
+            if(animator != null)
+            {
+                animator.SetBool("Active", false);
+            }
         }
     }
 
@@ -90,11 +96,17 @@ public class Activatable : MonoBehaviour
             OnActivationChange();
         }
         animator = GetComponent<Animator>();
-        highlightAnimator = transform.GetChild(0)?.GetComponent<Animator>();
+        if(transform.childCount > 0)
+        {
+            highlightAnimator = transform.GetChild(0)?.GetComponent<Animator>();
+        }
     }
 
     public void Highlight(bool highlight)
     {
-        highlightAnimator?.SetBool("Highlighted", highlight);
+        if(highlightAnimator != null)
+        {
+            highlightAnimator.SetBool("Highlighted", highlight);
+        }
     }
 }
