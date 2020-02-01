@@ -419,7 +419,7 @@ MonoBehaviour:
   eventIcon: {fileID: 0}
   duration: 0
   damage: 0
-  healthSection: {fileID: 11400000, guid: 300b2429f3023d14e860d1f43316aab4, type: 2}
+  section: 0
   damageCondition: {fileID: 0}
   damageGroups: []
   damageInterval: 0
@@ -495,6 +495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141629472705433638, guid: f7f938e740e06994f8c810bcea2f81cc,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 3.91
       objectReference: {fileID: 0}
     - target: {fileID: 3141629471892601373, guid: f7f938e740e06994f8c810bcea2f81cc,
         type: 3}
@@ -790,6 +795,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -1077,9 +1088,10 @@ GameObject:
   - component: {fileID: 2023090346}
   - component: {fileID: 2023090348}
   - component: {fileID: 2023090349}
+  - component: {fileID: 2023090350}
   m_Layer: 0
   m_Name: RadioStart
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,7 +1137,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 3987bac19706986408470e1e9dc9ba3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
@@ -1161,6 +1173,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate:
@@ -1185,6 +1203,25 @@ CircleCollider2D:
   m_Offset: {x: 0.21, y: 0.21}
   serializedVersion: 2
   m_Radius: 0.48368764
+--- !u!95 &2023090350
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023090345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdadc40012cfdd64ca010095bd4da8ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!58 &603236972262302328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1235,6 +1272,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -1390,6 +1433,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -1507,6 +1556,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -1643,6 +1698,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -1898,6 +1959,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -2034,6 +2101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -2315,6 +2388,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -2387,6 +2466,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -2670,6 +2755,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -3523,6 +3614,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -3759,6 +3856,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
@@ -3859,6 +3962,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSound1: {fileID: 0}
   buttonSound2: {fileID: 0}
+  buttonSongStart: {fileID: 0}
+  buttonSongStop: {fileID: 0}
+  buttonSongStop1: {fileID: 0}
+  buttonSongStop2: {fileID: 0}
+  buttonSongStop3: {fileID: 0}
+  transitionTime: 0.8
   active: 0
   updateOnStart: 1
   toActivate: []
