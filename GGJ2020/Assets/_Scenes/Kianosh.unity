@@ -220,7 +220,7 @@ MonoBehaviour:
     type: 2}
   nonColliding: {fileID: -879887859552685862, guid: 2c9dc89465c946d49b14e41184ba0d43,
     type: 2}
-  transitionTime: 0.8
+  transitionTime: 1.5
 --- !u!61 &1129556457
 BoxCollider2D:
   m_ObjectHideFlags: 0
