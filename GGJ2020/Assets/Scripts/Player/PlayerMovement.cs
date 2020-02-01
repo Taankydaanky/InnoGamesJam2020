@@ -84,8 +84,9 @@ public class PlayerMovement : MonoBehaviour
             Vector2 headGoal = transform.TransformPoint(new Vector2(0, headGoalY));
 
             head.transform.position = Vector2.MoveTowards(head.transform.position, headGoal, Mathf.Abs(movement.y) * headSpeed * Time.fixedDeltaTime);
+            UpdateAnimator(headGoalY);
 
-            if((Vector2)head.transform.position == headGoal && elevatorMoveDir == 0)
+            if ((Vector2)head.transform.position == headGoal && elevatorMoveDir == 0)
             {
                 if (isInElevatorMoveDir == 1 && headGoalY > headMinY && movement.y > 0.75f)     //Todo: no magic numbers!
                 {
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
                     MoveDown();
                 }
             }
+
         }
         else if (Mathf.Abs(elevatorMoveDir) == 1)
         {
@@ -107,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
                 elevatorMoveDir = 0;
             }
         }
+
+        
     }
 
     private void SetFaceDirection()
@@ -139,5 +143,19 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider.enabled = false;
         yield return new WaitForSeconds(colliderTime);
         bodyCollider.enabled = true;
+    }
+
+    private void UpdateAnimator(float headGoalY)
+    {
+        if (headGoalY == headMinY + maxHeadDistance)
+        {
+            headAnimator.SetBool("Fly", true);
+            bodyAnimator.SetBool("Fly", true);
+        }
+        else if(head.transform.localPosition.y == headMinY)
+        {
+            headAnimator.SetBool("Fly", false);
+            bodyAnimator.SetBool("Fly", false);
+        }
     }
 }
