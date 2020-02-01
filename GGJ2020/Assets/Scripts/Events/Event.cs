@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Event : MonoBehaviour
 {
     public UnityEvent startEvent, endEvent;
+    public Image eventIcon;
     public virtual void Execute(float time)
     {
         RunStartEvent();
