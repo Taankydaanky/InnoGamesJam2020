@@ -109,14 +109,18 @@ public class Activatable : MonoBehaviour
     {
         foreach (Activatable acc in toActivate)
         {
-            if (activate)
+            if(acc != null)
             {
-                acc.Activate();
+                if (activate)
+                {
+                    acc.Activate();
+                }
+                else
+                {
+                    acc.Deactivate();
+                }
             }
-            else
-            {
-                acc.Deactivate();
-            }
+            
         }
     }
 

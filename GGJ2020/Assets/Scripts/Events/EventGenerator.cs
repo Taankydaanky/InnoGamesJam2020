@@ -66,7 +66,7 @@ public class EventGenerator : MonoBehaviour
 
             usedEvents.Enqueue(usedEvent);
 
-            if (usedEvents.Count >= eventDistance)
+            if (usedEvents.Count > eventDistance)
             {
                 DurationEvent dequeued = usedEvents.Dequeue();
                 availableEvents.Add(dequeued);
