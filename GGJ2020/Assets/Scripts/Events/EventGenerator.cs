@@ -18,12 +18,15 @@ public class EventGenerator : MonoBehaviour
 
     private List<GeneratedEvent> generatedTimeline;
     private List<GeneratedEvent> runningEvents;
+    private List<GeneratedEvent> environmentEventList;
+    public List<GeneratedEvent> environmentGeneratedEvents { get => environmentEventList; }
 
     void Start()
     {
         generatedTimeline = new List<GeneratedEvent>();
         generatedTimeline.AddRange(GenerateEventTimeline(captainEvents, captianEventDistance, captainEventTimings));
-        generatedTimeline.AddRange(GenerateEventTimeline(environmentEvents, environmentEventDistance, environmentEventTimings));
+        environmentEventList = GenerateEventTimeline(environmentEvents, environmentEventDistance, environmentEventTimings);
+        generatedTimeline.AddRange(environmentEventList);
         generatedTimeline.AddRange(GenerateEventTimeline(groundEvents, groundEventDistance, groundEventTimings));
         runningEvents = new List<GeneratedEvent>();
     }
