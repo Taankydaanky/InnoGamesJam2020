@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "DamageGroup", menuName = "ScriptableObjects/DamageGroup", order = 1)]
 public class DamageGroup : ScriptableObject
 {
     public BreakableObjectList breakableObjectList;

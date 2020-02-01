@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventGenerator : MonoBehaviour
+[CreateAssetMenu(fileName = "EventGenerator", menuName = "ScriptableObjects/EventGenerator", order = 1)]
+public class EventGenerator : ScriptableObject
 {
     public DurationEvent[] captainEvents;
     public DurationEvent[] environmentEvents;

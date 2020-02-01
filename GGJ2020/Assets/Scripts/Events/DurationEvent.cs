@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "DurationEvent", menuName = "ScriptableObjects/DurationEvent", order = 1)]
 public class DurationEvent : Event
 {
     public float duration;
