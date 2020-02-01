@@ -9,20 +9,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float bodySpeed, headSpeed;
     [SerializeField] private float maxHeadDistance;
 
-    private Rigidbody2D body, head;
+    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D body;
+    private Transform head;
     private ControlsMaster controlsMaster;
     private Vector2 movement;
-    private float headMinY, headMaxY;
+    private float headMinY;
+    private bool isFacingLeft;
     
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        head = transform.GetChild(0).GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        head = transform.GetChild(0);
         headMinY = head.transform.localPosition.y;
-        headMaxY = head.transform.localPosition.y + maxHeadDistance;
-
-        Debug.Log("min " + headMinY + " max " + headMaxY);
+        isFacingLeft = true;
+        SetFaceDirection();
     }
 
     private void OnEnable()
@@ -46,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         movement = obj.ReadValue<Vector2>();
+        if(Mathf.Abs(movement.x)>0)
+        {
+            SetFaceDirection();
+        }
+        
+
     }
 
 
@@ -53,18 +62,21 @@ public class PlayerMovement : MonoBehaviour
     {
         body.velocity = new Vector2(movement.x * bodySpeed * Time.fixedDeltaTime, body.velocity.y);
 
-        float headGoalY = movement.y > 0 ? headMaxY : headMinY;
-        Vector2 headGoal = head.transform.TransformPoint(new Vector2(0, headGoalY));
+        float headGoalY = movement.y > 0 ? headMinY+maxHeadDistance : headMinY;
+        Vector2 headGoal = transform.TransformPoint(new Vector2(0, headGoalY));
 
-        //head.transform.position = Vector2.MoveTowards(head.transform.position, headGoal, movement.y * headSpeed * Time.fixedDeltaTime);
+        head.transform.position = Vector2.MoveTowards(head.transform.position, headGoal, Mathf.Abs(movement.y) * headSpeed * Time.fixedDeltaTime);
 
-        Vector2 moveDir = Vector2.MoveTowards(head.transform.position, headGoal, movement.y * headSpeed * Time.fixedDeltaTime);
-
-
-        if (movement.y != 0)
-        {
-            Debug.Log(head.transform.position+" global "+headGoal+" moveDir "+moveDir);
-        }
     }
 
+    private void SetFaceDirection()
+    {
+        bool oldIsFacingLeft = isFacingLeft;
+        isFacingLeft = movement.x <= 0;
+        if(oldIsFacingLeft != isFacingLeft)
+        {
+            transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
+            Debug.Log("switch face direction");
+        }
+    }
 }

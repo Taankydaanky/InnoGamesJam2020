@@ -8,8 +8,8 @@ public class Activatable : MonoBehaviour
     public virtual bool isActive { get => active; set => active = value; }
     public bool updateOnStart = true;
     public Activatable[] toActivate;
-    public string activateAnimation;
-    public string deactivateAnimation;
+    private Animator animator, highlightAnimator;
+
 
     public void Activate()
     {
@@ -20,14 +20,7 @@ public class Activatable : MonoBehaviour
                 isActive = true;
                 OnActivationChange();
 
-                if(activateAnimation != null && !activateAnimation.Equals(""))
-                {
-                    Animator ani = gameObject.GetComponent<Animator>();
-                    if(ani != null)
-                    {
-                        ani.Play(activateAnimation);
-                    }
-                }
+                animator.SetBool("Active", true);
             }
         }
     }
@@ -48,20 +41,26 @@ public class Activatable : MonoBehaviour
         {
             isActive = false;
             OnActivationChange();
-            if (deactivateAnimation != null && !deactivateAnimation.Equals(""))
-            {
-                Animator ani = gameObject.GetComponent<Animator>();
-                if (ani != null)
-                {
-                    ani.Play(deactivateAnimation);
-                }
-            }
+
+            animator.SetBool("Active", false);
         }
     }
 
     public virtual bool CanDeactivate()
     {
         return true;
+    }
+
+    public void Toggle()
+    {
+        if (!active)
+        {
+            Activate();
+        }
+        else
+        {
+            Deactivate();
+        }
     }
 
     protected void PropagateActivation(bool activate)
@@ -90,5 +89,12 @@ public class Activatable : MonoBehaviour
         {
             OnActivationChange();
         }
+        animator = GetComponent<Animator>();
+        highlightAnimator = transform.GetChild(0)?.GetComponent<Animator>();
+    }
+
+    public void Highlight(bool highlight)
+    {
+        highlightAnimator?.SetBool("Highlighted", highlight);
     }
 }
