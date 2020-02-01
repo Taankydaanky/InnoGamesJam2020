@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3141629471892601370}
   - component: {fileID: 3141629471892601372}
   - component: {fileID: 3141629471892601373}
+  - component: {fileID: 3997405102275589395}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141629471892601368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.093, z: 0}
+  m_LocalPosition: {x: 0, y: 0.081, z: 0}
   m_LocalScale: {x: 0.57894, y: 0.57894, z: 0.57894}
   m_Children: []
   m_Father: {fileID: 3141629472705433656}
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1081621219
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.96055627, g: 1, b: 0, a: 1}
@@ -90,14 +91,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141629471892601368}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -119,6 +120,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.0000000055879354}
   serializedVersion: 2
   m_Radius: 0.099999994
+--- !u!114 &3997405102275589395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141629471892601368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508d5071c1cf15049ac9ff67f447d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3141629472705433636
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 3141629472705433636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.18, y: -0.43, z: -1.6518703}
-  m_LocalScale: {x: 4.6707, y: 4.6707, z: 4.6707}
+  m_LocalScale: {x: 7.104135, y: 7.104135, z: 7.104135}
   m_Children:
   - {fileID: 3141629471892601371}
   m_Father: {fileID: 0}
@@ -189,9 +202,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1081621219
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -252,5 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d9cfd12c78e004c91202ac02472366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodySpeed: 100
-  headSpeed: 100
+  bodySpeed: 400
+  headSpeed: 10
+  maxHeadDistance: 0.4

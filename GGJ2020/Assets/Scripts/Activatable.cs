@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Activatable : MonoBehaviour
 {
+    
+
     public bool isActive;
     public bool updateOnStart = true;
     public Activatable[] toActivate;
-    public string activateAnimation;
-    public string deactivateAnimation;
+    private Animator animator, highlightAnimator;
+
 
     public void Activate()
     {
@@ -19,14 +21,16 @@ public class Activatable : MonoBehaviour
                 isActive = true;
                 OnActivationChange();
 
-                if(activateAnimation != null && !activateAnimation.Equals(""))
-                {
-                    Animator ani = gameObject.GetComponent<Animator>();
-                    if(ani != null)
-                    {
-                        ani.Play(activateAnimation);
-                    }
-                }
+                //if(activateAnimation != null && !activateAnimation.Equals(""))
+                //{
+                //    Animator ani = gameObject.GetComponent<Animator>();
+                //    if(ani != null)
+                //    {
+                //        ani.Play(activateAnimation);
+                //    }
+                //}
+                animator.SetBool("Active", true);
+                Debug.Log("activatable");
             }
         }
     }
@@ -47,14 +51,17 @@ public class Activatable : MonoBehaviour
         {
             isActive = false;
             OnActivationChange();
-            if (deactivateAnimation != null && !deactivateAnimation.Equals(""))
-            {
-                Animator ani = gameObject.GetComponent<Animator>();
-                if (ani != null)
-                {
-                    ani.Play(deactivateAnimation);
-                }
-            }
+            //if (deactivateAnimation != null && !deactivateAnimation.Equals(""))
+            //{
+            //    Animator ani = gameObject.GetComponent<Animator>();
+            //    if (ani != null)
+            //    {
+            //        ani.Play(deactivateAnimation);
+            //    }
+
+            //}
+            animator.SetBool("Active", false);
+            Debug.Log("un-activatable");
         }
     }
 
@@ -89,5 +96,12 @@ public class Activatable : MonoBehaviour
         {
             OnActivationChange();
         }
+        animator = GetComponent<Animator>();
+        highlightAnimator = transform.GetChild(0)?.GetComponent<Animator>();
+    }
+
+    public void Highlight(bool highlight)
+    {
+        highlightAnimator?.SetBool("Highlighted", highlight);
     }
 }
