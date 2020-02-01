@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float headMinY;
     private bool isFacingLeft;
     private Vector2 currentElevatorGoal;
+    private Animator bodyAnimator, headAnimator;
 
     public int elevatorMoveDir { get; private set; }
     public int isInElevatorMoveDir { get; set; } //1 = up; -1 = down
@@ -28,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
+        bodyAnimator = GetComponent<Animator>();
         head = transform.GetChild(0);
+        headAnimator = head.GetComponent<Animator>();
         headMinY = head.transform.localPosition.y;
         isFacingLeft = true;
         SetFaceDirection();
@@ -58,7 +61,16 @@ public class PlayerMovement : MonoBehaviour
         if(Mathf.Abs(movement.x)>0)
         {
             SetFaceDirection();
+
+            bodyAnimator.SetBool("Move", true);
+            headAnimator.SetBool("Move", true);
         }
+        else
+        {
+            bodyAnimator.SetBool("Move", false);
+            headAnimator.SetBool("Move", false);
+        }
+        
     }
 
 
@@ -85,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else /*if(elevatorMoveDir == 1)*/
+        else if (Mathf.Abs(elevatorMoveDir) == 1)
         {
             body.velocity = Vector2.zero;
             Vector2 goal = new Vector2(transform.position.x, currentElevatorGoal.y);
