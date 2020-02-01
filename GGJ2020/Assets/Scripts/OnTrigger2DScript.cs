@@ -9,16 +9,18 @@ using UnityEditor;
 
 public class OnTrigger2DScript : MonoBehaviour
 {
-    public AudioMixerSnapshot lounge;
-    public AudioMixerSnapshot nonLounge;
+    public AudioMixerSnapshot colliding;
+    public AudioMixerSnapshot nonColliding;
+
     public float transitionTime = .8f;
 
     void OnTriggerEnter2D()
     {
-        lounge.TransitionTo(transitionTime);
+        colliding.TransitionTo(transitionTime);
     }
     void OnTriggerExit2D()
     {
-        nonLounge.TransitionTo(transitionTime);
+        nonColliding.TransitionTo(transitionTime);
     }
+
 }
