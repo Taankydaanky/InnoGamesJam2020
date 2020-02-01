@@ -7,8 +7,8 @@ public class DamageEvent : DurationEvent
     public int damage;
     public HealthManager.Sections section;
     public Activatable damageCondition;
+    public bool completeOnConditionInactive;
     public DamageGroup[] damageGroups;
-    private HealthManager healthManager = HealthManager.healthManager;
 
     public override void End(float eventDuration)
     {
@@ -20,12 +20,18 @@ public class DamageEvent : DurationEvent
     {
         if(damageCondition == null || damageCondition.isActive)
         {
-            healthManager.RemoveSectionHealth((int) section, damage);
+            HealthManager.healthManager.RemoveSectionHealth((int) section, damage);
 
             foreach(DamageGroup dg in damageGroups)
             {
                 dg.DoDamage();
             }
         }
+    }
+
+    public override bool HasEnded(float eventDuration)
+    {
+        return base.HasEnded(eventDuration)
+            || (completeOnConditionInactive && damageCondition != null && !damageCondition.isActive);
     }
 }
