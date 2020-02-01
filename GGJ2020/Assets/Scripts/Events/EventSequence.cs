@@ -38,8 +38,6 @@ public class EventSequence : Activatable
                 Debug.Log(currentIndex);
                 sequence[currentIndex].Execute(0);
             }
-
-            Debug.Log(sequence[currentIndex].HasEnded(0));
         }
 
         if(currentIndex >= sequence.Length)
