@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GeneratedEvent : ScriptableObject
 {
-    private Event execEvent;
-    private float time;
+    public Event execEvent;
+    public float time;
 
     public bool Activate(float time)
     {
         if(time >= this.time)
         {
-            execEvent.Execute();
+            execEvent.Execute(time);
             return true;
         }
         return false;

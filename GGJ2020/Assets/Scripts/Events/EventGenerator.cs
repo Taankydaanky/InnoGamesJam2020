@@ -17,6 +17,7 @@ public class EventGenerator : MonoBehaviour
     public EventTiming[] groundEventTimings;
 
     private List<GeneratedEvent> generatedTimeline;
+    private List<GeneratedEvent> runningEvents;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class EventGenerator : MonoBehaviour
         generatedTimeline.AddRange(GenerateEventTimeline(captainEvents, captianEventDistance, captainEventTimings));
         generatedTimeline.AddRange(GenerateEventTimeline(environmentEvents, environmentEventDistance, environmentEventTimings));
         generatedTimeline.AddRange(GenerateEventTimeline(groundEvents, groundEventDistance, groundEventTimings));
+        runningEvents = new List<GeneratedEvent>();
     }
 
     List<GeneratedEvent> GenerateEventTimeline(Event[] events, int eventDistance, EventTiming[] timings)
@@ -64,9 +66,32 @@ public class EventGenerator : MonoBehaviour
         return generatedEvents;
     }
 
-    // TODO Time source
-    void Update()
+    void UpdateRunningEvents(float time)
     {
-        float time = 0;
+        List<GeneratedEvent> activatedEvents = new List<GeneratedEvent>();
+
+        foreach (GeneratedEvent ev in generatedTimeline)
+        {
+            if (ev.Activate(time))
+            {
+                activatedEvents.Add(ev);
+            }
+        }
+
+        runningEvents.AddRange(activatedEvents);
+        generatedTimeline.RemoveAll((e) => activatedEvents.Contains(e));
+
+        List<GeneratedEvent> endedEvents = runningEvents.FindAll(e => e.execEvent.HasEnded(time - e.time));
+        runningEvents.RemoveAll(e => e.execEvent.HasEnded(time - e.time));
+
+        endedEvents.ForEach(e => e.execEvent.End(time - e.time));
+    }
+    
+    void Update(float time)
+    {
+        foreach(GeneratedEvent ev in runningEvents)
+        {
+            ev.execEvent.Update(time - ev.time);
+        }
     }
 }
