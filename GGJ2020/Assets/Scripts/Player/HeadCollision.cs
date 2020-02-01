@@ -10,10 +10,12 @@ public class HeadCollision : MonoBehaviour
     private Breakable currentBreakable;
     private ControlsMaster controlsMaster;
     private PlayerItems playerItems;
+    private Animator animator;
 
     private void Start()
     {
         playerItems = GetComponentInParent<PlayerItems>();
+        animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -34,6 +36,7 @@ public class HeadCollision : MonoBehaviour
 
     private void Toggle(InputAction.CallbackContext obj)
     {
+        animator.SetTrigger("Click");
         currentActivatable?.Toggle();
         if (currentBreakable != null)
         {
