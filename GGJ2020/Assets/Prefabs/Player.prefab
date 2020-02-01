@@ -251,10 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d9cfd12c78e004c91202ac02472366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodySpeed: 400
+  bodySpeed: 300
   headSpeed: 10
-  elevatorSpeed: 0
-  maxHeadDistance: 2
+  elevatorSpeed: 10
+  maxHeadDistance: 6
+  disableColliderTime: 1
+  fallTime: 2
 --- !u!95 &2111286830
 Animator:
   serializedVersion: 3
