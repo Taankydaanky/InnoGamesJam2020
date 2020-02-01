@@ -66,7 +66,7 @@ public class EventGenerator : MonoBehaviour
         return generatedEvents;
     }
 
-    void UpdateRunningEvents(float time)
+    public void UpdateRunningEvents(float time)
     {
         List<GeneratedEvent> activatedEvents = new List<GeneratedEvent>();
 
@@ -87,7 +87,7 @@ public class EventGenerator : MonoBehaviour
         endedEvents.ForEach(e => e.execEvent.End(time - e.time));
     }
     
-    void Update(float time)
+    public void Update(float time)
     {
         foreach(GeneratedEvent ev in runningEvents)
         {
