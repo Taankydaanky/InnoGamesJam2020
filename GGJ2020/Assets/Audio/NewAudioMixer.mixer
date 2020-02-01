@@ -482,7 +482,25 @@ AudioMixerSnapshotController:
     b9033f4d79a075f4ba349fd791bcfee5: 2342
     320e49ad26b65524baf0c3d69bbb1232: -12.082023
     7baa1a1fd3f514649938a38242d921df: -7.8940816
-  m_TransitionOverrides: {}
+  m_TransitionOverrides:
+    6f9f8a61e5ca7ae4681ebf409e0fc2c7: 3
+    0f86209134dac194db3ff0997021548c: 3
+    055fa8f170db4ce44877c59ba4db5dfd: 3
+    2980f6d22a150fe46858aa4e0de58950: 3
+    5e7e013311190d944ab2c2e9ed1d5e16: 3
+    c15fef73b2918794cb7a0e79e6170081: 3
+    b41db8d651bd1fe439a41ee99ac0f43d: 3
+    0da80129b0dc7dd4fa2feeb60d611d04: 3
+    c8472ec935d13a44d8cd13aef69dab89: 2
+    3c222f0aa019c3d48ba3e1a55bffface: 3
+    be2f5a3acfd48ad44a431ac1ede00759: 3
+    f53b524b645a0bb469f474ad68f14e7b: 3
+    4e676d3c45160734687cd3931b31d729: 3
+    a5bcb08ce550b5d4f99c40aa3efff660: 3
+    b9033f4d79a075f4ba349fd791bcfee5: 3
+    320e49ad26b65524baf0c3d69bbb1232: 3
+    973bb84eb69018e4e90a0b88fed48957: 3
+    7baa1a1fd3f514649938a38242d921df: 3
 --- !u!244 &6439177207793551160
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
