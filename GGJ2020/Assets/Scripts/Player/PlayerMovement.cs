@@ -9,19 +9,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float bodySpeed, headSpeed;
     [SerializeField] private float maxHeadDistance;
 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D body;
     private Transform head;
     private ControlsMaster controlsMaster;
     private Vector2 movement;
-    private float headMinY, headMaxY;
+    private float headMinY;
+    private bool isFacingLeft;
     
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         head = transform.GetChild(0);
         headMinY = head.transform.localPosition.y;
-        headMaxY = head.transform.localPosition.y + maxHeadDistance;
+        SetFaceDirection();
     }
 
     private void OnEnable()
@@ -45,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         movement = obj.ReadValue<Vector2>();
+        SetFaceDirection();
+
     }
 
 
@@ -59,4 +64,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void SetFaceDirection()
+    {
+        bool oldIsFacingLeft = isFacingLeft;
+        isFacingLeft = movement.x <= 0;
+        if(oldIsFacingLeft != isFacingLeft)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            Debug.Log("switch face direction");
+        }
+    }
 }
