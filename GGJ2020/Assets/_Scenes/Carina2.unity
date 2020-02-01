@@ -2759,6 +2759,7 @@ MonoBehaviour:
   damage: 0
   section: 0
   damageCondition: {fileID: 0}
+  completeOnConditionInactive: 0
   damageGroups: []
   damageInterval: 0
   doDamageOnStart: 1
@@ -3607,6 +3608,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  currentIndex: -1
 --- !u!4 &1628965272
 Transform:
   m_ObjectHideFlags: 0
@@ -4191,6 +4193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StartSequenceTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893681578882852788, guid: 9b01659f29c6d9e4f9b52130babd2c10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6893681578882852777, guid: 9b01659f29c6d9e4f9b52130babd2c10,
         type: 3}
