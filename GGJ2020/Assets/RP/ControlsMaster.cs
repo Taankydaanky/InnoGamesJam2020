@@ -33,6 +33,14 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UI Accept"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b8938da-0320-4be3-b44c-787f45596767"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -123,6 +131,28 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                     ""action"": ""Activate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05ebf89d-17da-45d8-a6ea-ed569d96d6a1"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e9429ad-a4e0-42ef-9f25-8b461100eb9a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +163,7 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Activate = m_Player.FindAction("Activate", throwIfNotFound: true);
+        m_Player_UIAccept = m_Player.FindAction("UI Accept", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -184,12 +215,14 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Activate;
+    private readonly InputAction m_Player_UIAccept;
     public struct PlayerActions
     {
         private @ControlsMaster m_Wrapper;
         public PlayerActions(@ControlsMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Activate => m_Wrapper.m_Player_Activate;
+        public InputAction @UIAccept => m_Wrapper.m_Player_UIAccept;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -205,6 +238,9 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                 @Activate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
                 @Activate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
                 @Activate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
+                @UIAccept.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
+                @UIAccept.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
+                @UIAccept.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -215,6 +251,9 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                 @Activate.started += instance.OnActivate;
                 @Activate.performed += instance.OnActivate;
                 @Activate.canceled += instance.OnActivate;
+                @UIAccept.started += instance.OnUIAccept;
+                @UIAccept.performed += instance.OnUIAccept;
+                @UIAccept.canceled += instance.OnUIAccept;
             }
         }
     }
@@ -223,5 +262,6 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnActivate(InputAction.CallbackContext context);
+        void OnUIAccept(InputAction.CallbackContext context);
     }
 }
