@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-public class OpenWindow : Activatable
+public class OpenWindow : AndActivator
 {
     [SerializeField] private Animator[] windowAnimators;
 
@@ -13,6 +13,7 @@ public class OpenWindow : Activatable
 
     public override void Activate()
     {
+
         base.Activate();
         foreach(Animator animator in windowAnimators)
         {

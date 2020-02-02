@@ -40,7 +40,7 @@ public class GameTimer : MonoBehaviour
         if(newSeconds != currentSeconds)
         {
             eventGenerator.UpdateRunningEvents(exactTime);
-            if(HealthManager.healthManager.AnySectionDestroyed())
+            if(HealthManager.healthManager != null && HealthManager.healthManager.AnySectionDestroyed())
             {
                 ended = true;
             }
