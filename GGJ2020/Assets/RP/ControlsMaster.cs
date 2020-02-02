@@ -41,6 +41,14 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UI Decline"",
+                    ""type"": ""Button"",
+                    ""id"": ""d039378e-b971-4719-bc8a-e11aa7501767"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -153,6 +161,28 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                     ""action"": ""UI Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""710e478d-9c13-4c7b-83ca-fb5342f3d07a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI Decline"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""341919db-41a4-495a-a1d7-c36d37b113ff"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI Decline"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +194,7 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Activate = m_Player.FindAction("Activate", throwIfNotFound: true);
         m_Player_UIAccept = m_Player.FindAction("UI Accept", throwIfNotFound: true);
+        m_Player_UIDecline = m_Player.FindAction("UI Decline", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,6 +247,7 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Activate;
     private readonly InputAction m_Player_UIAccept;
+    private readonly InputAction m_Player_UIDecline;
     public struct PlayerActions
     {
         private @ControlsMaster m_Wrapper;
@@ -223,6 +255,7 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Activate => m_Wrapper.m_Player_Activate;
         public InputAction @UIAccept => m_Wrapper.m_Player_UIAccept;
+        public InputAction @UIDecline => m_Wrapper.m_Player_UIDecline;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,6 +274,9 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                 @UIAccept.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
                 @UIAccept.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
                 @UIAccept.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIAccept;
+                @UIDecline.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIDecline;
+                @UIDecline.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIDecline;
+                @UIDecline.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUIDecline;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -254,6 +290,9 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
                 @UIAccept.started += instance.OnUIAccept;
                 @UIAccept.performed += instance.OnUIAccept;
                 @UIAccept.canceled += instance.OnUIAccept;
+                @UIDecline.started += instance.OnUIDecline;
+                @UIDecline.performed += instance.OnUIDecline;
+                @UIDecline.canceled += instance.OnUIDecline;
             }
         }
     }
@@ -263,5 +302,6 @@ public class @ControlsMaster : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnActivate(InputAction.CallbackContext context);
         void OnUIAccept(InputAction.CallbackContext context);
+        void OnUIDecline(InputAction.CallbackContext context);
     }
 }
