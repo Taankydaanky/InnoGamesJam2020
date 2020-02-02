@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTimeInSeconds: 30
   positiveVariability: 4
-  negativeVariability: 7
+  negativeVariability: 3

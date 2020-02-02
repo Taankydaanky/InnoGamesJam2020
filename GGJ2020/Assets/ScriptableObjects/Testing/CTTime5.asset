@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4847051b5160dd748b9995e2a45f596f, type: 3}
-  m_Name: Top
+  m_Script: {fileID: 11500000, guid: 00e7054be25558945ae73758c2ddf0df, type: 3}
+  m_Name: CTTime5
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  triggerTimeInSeconds: 90
+  positiveVariability: 1
+  negativeVariability: 1
