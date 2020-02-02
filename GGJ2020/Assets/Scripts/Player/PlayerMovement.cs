@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingLeft;
     private Vector2 currentElevatorGoal;
     private Animator bodyAnimator, headAnimator;
+
+    public AudioMixerSnapshot walking;
+    public AudioMixerSnapshot notWalking;
+    public float transitionTime = .8f;
 
     public int elevatorMoveDir { get; private set; }
     public int isInElevatorMoveDir { get; set; } //1 = up; -1 = down
@@ -64,11 +70,13 @@ public class PlayerMovement : MonoBehaviour
 
             bodyAnimator.SetBool("Move", true);
             headAnimator.SetBool("Move", true);
+            walking.TransitionTo(transitionTime);
         }
         else
         {
             bodyAnimator.SetBool("Move", false);
             headAnimator.SetBool("Move", false);
+            notWalking.TransitionTo(transitionTime);
         }
         
     }
