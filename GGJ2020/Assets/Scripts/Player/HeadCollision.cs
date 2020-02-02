@@ -49,32 +49,34 @@ public class HeadCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentActivatable = collision.GetComponent<Activatable>();
-        currentBreakable = collision.GetComponent<Breakable>();
+        Activatable tempActivatable = collision.GetComponent<Activatable>();
+        Breakable tempBreakable = collision.GetComponent<Breakable>();
 
-        if (currentActivatable!=null)
+        if (tempActivatable!=null)
         {
+            currentActivatable = tempActivatable;
             currentActivatable.Highlight(true);
         }
 
-        if(currentBreakable!=null)
+        if(tempBreakable!=null)
         {
+            currentBreakable = tempBreakable;
             currentBreakable.Highlight(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        currentActivatable = collision.GetComponent<Activatable>();
-        currentBreakable = collision.GetComponent<Breakable>();
+        Activatable tempActivatable = collision.GetComponent<Activatable>();
+        Breakable tempBreakable = collision.GetComponent<Breakable>();
 
-        if (currentActivatable != null)
+        if (currentActivatable != null && currentActivatable == tempActivatable)
         {
             currentActivatable.Highlight(false);
             currentActivatable = null;
         }
 
-        if (currentBreakable != null)
+        if (currentBreakable != null && currentBreakable == tempBreakable)
         {
             currentBreakable.Highlight(false);
             currentBreakable = null;
