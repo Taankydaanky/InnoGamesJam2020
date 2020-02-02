@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AlwaysScrollDówn : MonoBehaviour
+public class AlwaysScrollDown : MonoBehaviour
 {
     public Text messageField;
     private ScrollRect scrollRect;
