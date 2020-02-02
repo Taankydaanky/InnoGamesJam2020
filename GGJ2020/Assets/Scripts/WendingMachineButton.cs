@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WendingMachineButton : Activatable
 {
@@ -9,6 +10,8 @@ public class WendingMachineButton : Activatable
 
     private PlayerItems playerItems;
 
+    public AudioMixerSnapshot eventSoundEffectOn;
+    public AudioMixerSnapshot eventSoundEffectOff;
 
     override protected void Start()
     {
@@ -19,6 +22,10 @@ public class WendingMachineButton : Activatable
     public override void Activate()
     {
         base.Activate();
+        if (eventSoundEffectOn != null)
+        {
+            eventSoundEffectOn.TransitionTo(transitionTime);
+        }
         if (repairKit != Enums.RepairKits.None)
         {
             playerItems.currentRepairKit = repairKit;
@@ -30,5 +37,9 @@ public class WendingMachineButton : Activatable
     {
         yield return new WaitForSeconds(time);
         base.Deactivate();
+        if (eventSoundEffectOff != null)
+        {
+            eventSoundEffectOff.TransitionTo(transitionTime);
+        }
     }
 }
