@@ -1,5 +1,167 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &98961459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98961460}
+  - component: {fileID: 98961461}
+  m_Layer: 0
+  m_Name: Ghosts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &98961460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98961459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4293535019830926843}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98961461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98961459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dac337448c3b349aac16f1a3166e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GHOSTS! GHOSTS! In the cantine! \n GHOSTS!!
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  endEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  eventIcon: {fileID: 0}
+  duration: 20
+  damage: 1
+  section: 0
+  damageCondition: {fileID: 0}
+  completeOnConditionInactive: 1
+  damageGroups: []
+--- !u!1 &579873683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579873684}
+  - component: {fileID: 579873686}
+  - component: {fileID: 579873685}
+  m_Layer: 0
+  m_Name: DamageGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579873684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579873683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4293535020581659296}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579873686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579873683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4b3d62d507914429bd635af4e97ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakableObjectList: {fileID: 579873685}
+  damageCondition: {fileID: 0}
+  minObjectBreaks: 1
+  maxObjectBreaks: 1
+--- !u!114 &579873685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579873683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cdc15ea0fd14a468a0166a30245ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4293535018999136668
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +217,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 0}
   duration: 20
-  damage: 3
+  damage: 1
   section: 0
   damageCondition: {fileID: 0}
   completeOnConditionInactive: 1
@@ -114,7 +276,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: f25672e47ee55a245a51ea268b0d68ec, type: 3}
-  duration: 5
+  duration: 3
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
@@ -175,7 +337,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: d42e02b80f773b04ea13b0c8061ad9a3, type: 3}
-  duration: 5
+  duration: 3
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
@@ -440,6 +602,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4293535020304871647}
+  - {fileID: 98961460}
   m_Father: {fileID: 4293535019573543281}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -551,7 +714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293535020304871647}
-  - component: {fileID: 4293535020304871644}
+  - component: {fileID: 348760926}
   m_Layer: 0
   m_Name: Bmeisen
   m_TagString: Untagged
@@ -573,7 +736,7 @@ Transform:
   m_Father: {fileID: 4293535019830926843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4293535020304871644
+--- !u!114 &348760926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -582,28 +745,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 4293535020304871645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93600596bc0f34d45b8bc2e48a6a2ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 86dac337448c3b349aac16f1a3166e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ANTS! ANTS! In the machine room! \n ANTS!!
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   endEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 0}
-  duration: 15
+  duration: 20
   damage: 1
   section: 2
   damageCondition: {fileID: 0}
-  completeOnConditionInactive: 0
+  completeOnConditionInactive: 1
   damageGroups: []
-  damageInterval: 5
-  doDamageOnStart: 1
 --- !u!1 &4293535020444608430
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +922,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.6129782, y: -18.856758, z: 31.256256}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 579873684}
   m_Father: {fileID: 4293535019718213585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -766,12 +950,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: e925fb475f614d644bbed495dae5b339, type: 3}
-  duration: 5
+  duration: 3
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
   completeOnConditionInactive: 0
-  damageGroups: []
+  damageGroups:
+  - {fileID: 579873686}
 --- !u!1 &4293535020639353509
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,11 +1007,15 @@ MonoBehaviour:
   - {fileID: 1889156117}
   - {fileID: 1065943488}
   groundEvents:
-  - {fileID: 4293535020304871644}
+  - {fileID: 348760926}
+  - {fileID: 98961461}
   captianEventDistance: 0
   environmentEventDistance: 2
-  groundEventDistance: 0
-  captainEventTimings: []
+  groundEventDistance: 1
+  captainEventTimings:
+  - {fileID: 11400000, guid: b81dd97761675064582751b18c7cd014, type: 2}
+  - {fileID: 11400000, guid: 649a68aee1f6eed4a8308a016ea3cddf, type: 2}
+  - {fileID: 11400000, guid: 671580db5cfbc1a46b713f9ee2a92505, type: 2}
   environmentEventTimings:
   - {fileID: 11400000, guid: 11fc9dc45d2d57d49806bed39276961b, type: 2}
   - {fileID: 11400000, guid: 9f904aed4c3412c49975d08bc84482c9, type: 2}
@@ -834,7 +1023,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8885fa88bc1fbe9409e89feb0637a676, type: 2}
   - {fileID: 11400000, guid: b8dfe162bb5a20e41bfdcc8d8ed1d1ac, type: 2}
   - {fileID: 11400000, guid: 20de65d5855fe3748ba7327e5d8289f7, type: 2}
-  groundEventTimings: []
+  groundEventTimings:
+  - {fileID: 11400000, guid: 8407050d52e9dae4093ed40c189c5799, type: 2}
+  - {fileID: 11400000, guid: 10738207542aba642b38e48604b74725, type: 2}
+  - {fileID: 11400000, guid: 8d8f487f8cfbbe7409ef7766685ad660, type: 2}
+  - {fileID: 11400000, guid: c29da20a8e195654a996630b783e0aab, type: 2}
   timer: {fileID: 4293535019573543280}
   desasterSliderPrefab: {fileID: 4352053943811887772, guid: 27e4df2a3baf47f459d49c5fc3bd9adf,
     type: 3}
@@ -915,13 +1108,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4293535021002184936}
   - component: {fileID: 4293535021002184939}
+  - component: {fileID: 2136510288}
   m_Layer: 0
-  m_Name: StormFloor1
+  m_Name: DamageGrou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4293535021002184936
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +1142,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4b3d62d507914429bd635af4e97ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakableObjectList: {fileID: 0}
+  breakableObjectList: {fileID: 2136510288}
   damageCondition: {fileID: 0}
   minObjectBreaks: 1
-  maxObjectBreaks: 3
+  maxObjectBreaks: 1
+--- !u!114 &2136510288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293535021002184937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cdc15ea0fd14a468a0166a30245ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

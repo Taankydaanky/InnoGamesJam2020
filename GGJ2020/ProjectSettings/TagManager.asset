@@ -47,3 +47,6 @@ TagManager:
   - name: Player
     uniqueID: 1081621219
     locked: 0
+  - name: Window
+    uniqueID: 2471719799
+    locked: 0

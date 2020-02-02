@@ -41,7 +41,7 @@ public class Breakable : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         if (updateOnStart)
@@ -55,7 +55,7 @@ public class Breakable : MonoBehaviour
         }
     }
 
-    public void Highlight(bool highlight)
+    public virtual void Highlight(bool highlight)
     {
         if (highlightAnimator != null)
         {

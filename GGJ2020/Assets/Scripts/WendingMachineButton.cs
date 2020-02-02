@@ -19,7 +19,10 @@ public class WendingMachineButton : Activatable
     public override void Activate()
     {
         base.Activate();
-        playerItems.currentRepairKit = repairKit;
+        if (repairKit != Enums.RepairKits.None)
+        {
+            playerItems.currentRepairKit = repairKit;
+        }
         StartCoroutine("DeactivateAfterTime", animationTime);
     }
 

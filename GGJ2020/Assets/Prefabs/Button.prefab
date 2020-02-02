@@ -151,8 +151,7 @@ MonoBehaviour:
   transitionTime: 0.8
   active: 0
   updateOnStart: 1
-  toActivate:
-  - {fileID: 0}
+  toActivate: []
 --- !u!1 &603236974042857923
 GameObject:
   m_ObjectHideFlags: 0

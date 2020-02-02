@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508d5071c1cf15049ac9ff67f447d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageTextField: {fileID: 0}
 --- !u!95 &3141629471965697931
 Animator:
   serializedVersion: 3
@@ -261,6 +262,14 @@ MonoBehaviour:
   maxHeadDistance: 6
   disableColliderTime: 1
   fallTime: 2
+  walking: {fileID: 24500006, guid: 31df5329342de87419d4828f066e11cc, type: 2}
+  notWalking: {fileID: 1993140454572671384, guid: 31df5329342de87419d4828f066e11cc,
+    type: 2}
+  flying: {fileID: 24500006, guid: 0286b067200f0364394178a104d6a3d8, type: 2}
+  notFlying: {fileID: 6979147886201002508, guid: 0286b067200f0364394178a104d6a3d8,
+    type: 2}
+  transitionTime: 0.5
+  transitionTime2: 1.5
 --- !u!95 &2111286830
 Animator:
   serializedVersion: 3
