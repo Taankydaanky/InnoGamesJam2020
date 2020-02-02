@@ -33,12 +33,17 @@ public class GameTimer : MonoBehaviour
     
     void Update()
     {
+        bool ended = false;
         float exactTime = (float) (DateTime.UtcNow.Subtract(startTime).TotalSeconds + elapsedSeconds);
         int newSeconds = (int) exactTime;
 
         if(newSeconds != currentSeconds)
         {
             eventGenerator.UpdateRunningEvents(exactTime);
+            if(HealthManager.healthManager.AnySectionDestroyed())
+            {
+                ended = true;
+            }
         }
 
         eventGenerator.UpdateEvents(exactTime);
@@ -47,7 +52,12 @@ public class GameTimer : MonoBehaviour
 
         if(currentSeconds >= maxSeconds)
         {
-            if(timerEnded != null)
+            ended = true;
+        }
+
+        if(ended)
+        {
+            if (timerEnded != null)
             {
                 timerEnded.Invoke();
             }
