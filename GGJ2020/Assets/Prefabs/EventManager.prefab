@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293535019056388090}
-  - component: {fileID: 4293535019056388091}
+  - component: {fileID: 1065943488}
   m_Layer: 0
   m_Name: Flood
   m_TagString: Untagged
@@ -91,7 +91,7 @@ Transform:
   m_Father: {fileID: 4293535019718213585}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4293535019056388091
+--- !u!114 &1065943488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4293535019056388088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93600596bc0f34d45b8bc2e48a6a2ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 86dac337448c3b349aac16f1a3166e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startEvent:
@@ -114,14 +114,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: f25672e47ee55a245a51ea268b0d68ec, type: 3}
-  duration: 15
+  duration: 5
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
   completeOnConditionInactive: 0
   damageGroups: []
-  damageInterval: 5
-  doDamageOnStart: 1
 --- !u!1 &4293535019212823880
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293535019212823883}
-  - component: {fileID: 4293535019212823882}
+  - component: {fileID: 1889156117}
   m_Layer: 0
   m_Name: Storm
   m_TagString: Untagged
@@ -154,7 +152,7 @@ Transform:
   m_Father: {fileID: 4293535019718213585}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4293535019212823882
+--- !u!114 &1889156117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4293535019212823880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93600596bc0f34d45b8bc2e48a6a2ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 86dac337448c3b349aac16f1a3166e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startEvent:
@@ -177,15 +175,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: d42e02b80f773b04ea13b0c8061ad9a3, type: 3}
-  duration: 15
+  duration: 5
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
   completeOnConditionInactive: 0
-  damageGroups:
-  - {fileID: 4293535021002184939}
-  damageInterval: 5
-  doDamageOnStart: 1
+  damageGroups: []
 --- !u!1 &4293535019232552351
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4293535020581659296}
-  - component: {fileID: 4293535020581659299}
+  - component: {fileID: 619274514}
   m_Layer: 0
   m_Name: Earthquake
   m_TagString: Untagged
@@ -748,7 +743,7 @@ Transform:
   m_Father: {fileID: 4293535019718213585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4293535020581659299
+--- !u!114 &619274514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -757,7 +752,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4293535020581659297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93600596bc0f34d45b8bc2e48a6a2ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 86dac337448c3b349aac16f1a3166e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startEvent:
@@ -771,14 +766,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventIcon: {fileID: 21300000, guid: e925fb475f614d644bbed495dae5b339, type: 3}
-  duration: 15
+  duration: 5
   damage: 1
   section: 1
   damageCondition: {fileID: 0}
   completeOnConditionInactive: 0
   damageGroups: []
-  damageInterval: 5
-  doDamageOnStart: 1
 --- !u!1 &4293535020639353509
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,9 +818,9 @@ MonoBehaviour:
   captainEvents:
   - {fileID: 4293535018999136671}
   environmentEvents:
-  - {fileID: 4293535020581659299}
-  - {fileID: 4293535019212823882}
-  - {fileID: 4293535019056388091}
+  - {fileID: 619274514}
+  - {fileID: 1889156117}
+  - {fileID: 1065943488}
   groundEvents:
   - {fileID: 4293535020304871644}
   captianEventDistance: 0
@@ -839,9 +832,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f904aed4c3412c49975d08bc84482c9, type: 2}
   - {fileID: 11400000, guid: 3ef92a1c159c562458cb980d2d1d44b9, type: 2}
   - {fileID: 11400000, guid: 8885fa88bc1fbe9409e89feb0637a676, type: 2}
+  - {fileID: 11400000, guid: b8dfe162bb5a20e41bfdcc8d8ed1d1ac, type: 2}
+  - {fileID: 11400000, guid: 20de65d5855fe3748ba7327e5d8289f7, type: 2}
   groundEventTimings: []
   timer: {fileID: 4293535019573543280}
-  desasterSliderPrefab: {fileID: 0}
+  desasterSliderPrefab: {fileID: 4352053943811887772, guid: 27e4df2a3baf47f459d49c5fc3bd9adf,
+    type: 3}
   desasterTimeline: {fileID: 0}
 --- !u!1 &4293535020976537840
 GameObject:
@@ -925,7 +921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4293535021002184936
 Transform:
   m_ObjectHideFlags: 0
