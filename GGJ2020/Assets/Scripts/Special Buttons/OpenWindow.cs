@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 
 public class OpenWindow : Activatable
 {
     [SerializeField] private Animator[] windowAnimators;
+
+    public AudioMixerSnapshot windowOpen;
+    public AudioMixerSnapshot windowClosed;
 
     public override void Activate()
     {
@@ -13,7 +18,10 @@ public class OpenWindow : Activatable
         {
             animator.SetBool("open", true);
         }
-        //todo start music here
+        if (windowOpen != null)
+        {
+            windowOpen.TransitionTo(transitionTime);
+        }
     }
 
     public override void Deactivate()
@@ -23,6 +31,9 @@ public class OpenWindow : Activatable
         {
             animator.SetBool("open", false);
         }
-        //todo stop music here
+        if (windowClosed != null)
+        {
+            windowClosed.TransitionTo(transitionTime);
+        }
     }
 }
