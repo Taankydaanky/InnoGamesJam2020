@@ -35,7 +35,7 @@ public class Breakable : MonoBehaviour
             animator.SetBool("broken", isBroken);
         }
 
-        if(!isBroken && improveHealth != null)
+        if(!isBroken && improveHealth != 0)
         {
             HealthManager.healthManager.RemoveSectionHealth((int)improveHealth, improveHealthAmount*-1);
         }
