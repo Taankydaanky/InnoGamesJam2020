@@ -54,6 +54,10 @@ public class HeadCollision : MonoBehaviour
 
         if (tempActivatable!=null)
         {
+            if(currentActivatable != null)
+            {
+                currentActivatable.Highlight(false);
+            }
             currentActivatable = tempActivatable;
             currentActivatable.Highlight(true);
         }
