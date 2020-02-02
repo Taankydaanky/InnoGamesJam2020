@@ -6696,6 +6696,42 @@ PrefabInstance:
       propertyPath: exitEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 320316052}
+    - target: {fileID: 4855353694156687417, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10b9323f8b0dada47b623e009fb7695b,
+        type: 3}
+    - target: {fileID: 4855353694156687417, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855353693828439405, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855353693828439405, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855353693828439407, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855353693828439407, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855353693828439407, guid: b80ef116c8abaca44b48216a7381bbdb,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.754717
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b80ef116c8abaca44b48216a7381bbdb, type: 3}
 --- !u!1 &2076698541 stripped
