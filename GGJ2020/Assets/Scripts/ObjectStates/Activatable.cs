@@ -115,7 +115,7 @@ public class Activatable : MonoBehaviour
 
     public virtual bool CanActivate()
     {
-        Breakable breakable = gameObject.GetComponent("Breakable") as Breakable;
+        Breakable breakable = gameObject.GetComponentInChildren<Breakable>() as Breakable;
         if (breakable != null)
         {
             return !breakable.isBroken;

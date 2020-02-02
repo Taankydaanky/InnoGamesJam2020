@@ -12,18 +12,23 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private Image[] sectionImages;
     [SerializeField, Tooltip("dead to alive")] private Gradient healthGradient;
 
-    private void Start()
+    private void Awake()
     {
-        if(healthManager == null)
+        if (healthManager == null)
         {
             healthManager = this;
         }
 
-        if(healthManager!=this)
+        if (healthManager != this)
         {
             Destroy(gameObject);
             return;
         }
+    }
+
+    private void Start()
+    {
+        
 
         for(int i=0;i<sectionImages.Length;i++)
         {

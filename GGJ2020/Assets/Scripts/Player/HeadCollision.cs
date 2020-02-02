@@ -3,14 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class HeadCollision : MonoBehaviour
 {
+    [SerializeField] private Text messageTextField;
+
     private Activatable currentActivatable;
     private Breakable currentBreakable;
     private ControlsMaster controlsMaster;
     private PlayerItems playerItems;
     private Animator animator;
+
+    private bool isTutorial = true;
+
 
     private void Start()
     {
@@ -43,6 +49,11 @@ public class HeadCollision : MonoBehaviour
             if (currentBreakable.repairKitNeeded == playerItems.currentRepairKit)
             {
                 currentBreakable.isBroken = false;
+                isTutorial = false;
+            }
+            else if(isTutorial)
+            {
+                messageTextField.text += "\n Find a new button to fix it!!";
             }
         }
     }
@@ -50,7 +61,7 @@ public class HeadCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Activatable tempActivatable = collision.GetComponent<Activatable>();
-        Breakable tempBreakable = collision.GetComponent<Breakable>();
+        Breakable tempBreakable = collision.GetComponentInChildren<Breakable>();
 
         if (tempActivatable!=null)
         {
@@ -72,7 +83,7 @@ public class HeadCollision : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Activatable tempActivatable = collision.GetComponent<Activatable>();
-        Breakable tempBreakable = collision.GetComponent<Breakable>();
+        Breakable tempBreakable = collision.GetComponentInChildren<Breakable>();
 
         if (currentActivatable != null && currentActivatable == tempActivatable)
         {

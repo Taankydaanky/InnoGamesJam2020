@@ -17,6 +17,8 @@ public class Breakable : MonoBehaviour
         get => broken;
         set
         {
+            broken = value;
+            OnBreakStateChange();
             if (value != broken)
             {
                 broken = value;
@@ -47,7 +49,7 @@ public class Breakable : MonoBehaviour
             OnBreakStateChange();
         }
 
-        if (transform.childCount > 0 && GetComponent<Activatable>()==null)
+        if (transform.childCount > 0 && GetComponentInParent<Activatable>()==null)
         {
             highlightAnimator = transform.GetChild(0)?.GetComponent<Animator>();
         }
