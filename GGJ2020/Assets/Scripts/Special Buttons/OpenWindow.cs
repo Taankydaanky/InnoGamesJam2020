@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-public class OpenWindow : AndActivator
+public class OpenWindow : Activatable
 {
     [SerializeField] private Animator[] windowAnimators;
+    [SerializeField] private Activatable[] inputs;
 
     public AudioMixerSnapshot windowOpen;
     public AudioMixerSnapshot windowClosed;
 
     public override void Activate()
     {
+        foreach(Activatable input in inputs)
+        {
+            if (!input.isActive)
+                return;
+        }
 
         base.Activate();
         foreach(Animator animator in windowAnimators)
@@ -27,6 +33,12 @@ public class OpenWindow : AndActivator
 
     public override void Deactivate()
     {
+        foreach (Activatable input in inputs)
+        {
+            if (!input.isActive)
+                return;
+        }
+
         base.Deactivate();
         foreach (Animator animator in windowAnimators)
         {
