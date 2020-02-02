@@ -9,6 +9,7 @@ public class Enums
         Button,
         Lever,
         LightBulb,
+        Food,
         None
     }
         
