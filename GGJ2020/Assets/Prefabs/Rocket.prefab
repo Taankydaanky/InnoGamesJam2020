@@ -363,7 +363,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19338179, y: 1.3368139}
+  m_Offset: {x: -0.19338179, y: 1.0920305}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -374,7 +374,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22647953, y: 3.6736279}
+  m_Size: {x: 0.22647953, y: 4.1631947}
   m_EdgeRadius: 0
 --- !u!114 &5996023820980097754
 MonoBehaviour:
@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 2490960565060430699}
   - component: {fileID: 5492625469345686004}
   - component: {fileID: 584878698}
+  - component: {fileID: 1649914054}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -922,3 +923,49 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &1649914054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846797298326842022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3aea11e35c65046ba09daa5db6376d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sections:
+  - {fileID: 11400000, guid: e501d3d88414d814d8ea311468d7ab01, type: 2}
+  - {fileID: 11400000, guid: 300b2429f3023d14e860d1f43316aab4, type: 2}
+  - {fileID: 11400000, guid: 1b4f24407df3b974292138a8ca6cd95e, type: 2}
+  sectionImages: []
+  healthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
