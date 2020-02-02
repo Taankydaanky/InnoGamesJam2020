@@ -24,7 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioMixerSnapshot walking;
     public AudioMixerSnapshot notWalking;
+    public AudioMixerSnapshot flying;
+    public AudioMixerSnapshot notFlying;
     public float transitionTime = .8f;
+    public float transitionTime2 = 1.5f;
 
     public int elevatorMoveDir { get; private set; }
     public int isInElevatorMoveDir { get; set; } //1 = up; -1 = down
@@ -163,11 +166,14 @@ public class PlayerMovement : MonoBehaviour
         {
             headAnimator.SetBool("Fly", true);
             bodyAnimator.SetBool("Fly", true);
+            flying.TransitionTo(transitionTime2);
         }
         else if(head.transform.localPosition.y == headMinY)
         {
             headAnimator.SetBool("Fly", false);
             bodyAnimator.SetBool("Fly", false);
+            notFlying.TransitionTo(transitionTime2);
+
         }
     }
 }
